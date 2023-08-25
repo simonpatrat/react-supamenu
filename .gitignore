@@ -3,3 +3,4 @@ dist/
 bundle-analysis.html
 .npmrc
 coverage/
+yarn-error.log
