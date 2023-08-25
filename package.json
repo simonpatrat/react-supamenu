@@ -1,9 +1,12 @@
 {
   "name": "@simonpatrat/react-supamenu",
-  "version": "0.0.5",
+  "version": "0.0.0",
   "description": "react version of the supamenu library",
   "author": "Simon Patrat",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simonpatrat/react-supamenu.git"
+  },
   "license": "MIT",
   "type": "module",
   "main": "dist/cjs/index.js",
