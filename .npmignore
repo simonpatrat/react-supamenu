@@ -1,0 +1,6 @@
+src
+node_modules/
+tests/
+bundle-analysis.html
+.npmrc
+coverage/
