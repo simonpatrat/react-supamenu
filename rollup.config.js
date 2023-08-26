@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { nodeResolve } from "@rollup/plugin-node-resolve";
+import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
@@ -29,7 +29,7 @@ const tsconfigOverride = {
     allowSyntheticDefaultImports: true,
   },
   useTsconfigDeclarationDir: true,
-  exclude: ["**/*.spec.ts", "**/*.stories.*"],
+  exclude: ["**/*.spec.tsx", "**/*.spec.ts", "**/*.stories.*"],
 };
 
 const getPostCssPlugins = () => [
@@ -49,9 +49,7 @@ const getPostCss = () => [
 const getPlugins = () => [
   peerDepsExternal(),
   commonjs(),
-  nodeResolve({
-    extensions: [".js", ".jsx", ".ts", ".tsx", ".scss"],
-  }),
+  resolve(),
 
   typescript({
     // tsconfig: "./tsconfig.json",

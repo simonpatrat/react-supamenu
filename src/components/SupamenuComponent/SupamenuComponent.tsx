@@ -3,7 +3,15 @@ import * as React from "react";
 import { SupaMenu, type SupaMenuSettings } from "@simonpatrat/supamenu";
 import "@simonpatrat/supamenu/dist/supamenu.css";
 
-const SupamenuComponent = ({ config }: { config: SupaMenuSettings }) => {
+export const SupamenuComponent = ({
+  config,
+  id,
+  testId,
+}: {
+  config: SupaMenuSettings;
+  id: string;
+  testId?: string;
+}) => {
   const menuElRef = React.useRef<HTMLElement | null>(null);
   const loadedSupamenu = React.useRef<SupaMenu | null>(null);
 
@@ -14,7 +22,7 @@ const SupamenuComponent = ({ config }: { config: SupaMenuSettings }) => {
   }, []);
 
   return (
-    <nav className="supamenu" ref={menuElRef}>
+    <nav className="supamenu" ref={menuElRef} data-testid={testId} id={id}>
       <button
         type="button"
         className="spm__close-menu-button"
@@ -211,5 +219,3 @@ const SupamenuComponent = ({ config }: { config: SupaMenuSettings }) => {
     </nav>
   );
 };
-
-export default SupamenuComponent;

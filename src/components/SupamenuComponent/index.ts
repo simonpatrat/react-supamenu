@@ -1,1 +1,1 @@
-export { default as SupamenuComponent } from "./SupamenuComponent";
+export { SupamenuComponent } from "./SupamenuComponent";
