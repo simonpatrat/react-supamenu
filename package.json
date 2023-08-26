@@ -30,7 +30,7 @@
     "test": "node --experimental-vm-modules $(yarn bin jest)",
     "test:coverage": "node --experimental-vm-modules $(yarn bin jest --coverage)",
     "bp": "yarn build-and-publish",
-    "publish-np": "yarn build && np"
+    "publish": "yarn build && np"
   },
   "peerDependencies": {
     "react": "^17.0.2",
