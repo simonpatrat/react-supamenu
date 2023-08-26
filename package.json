@@ -29,7 +29,7 @@
     "watch": "npm-run-all --parallel reload dev",
     "test": "node --experimental-vm-modules $(yarn bin jest)",
     "test:coverage": "node --experimental-vm-modules $(yarn bin jest --coverage)",
-    "publish": "yarn build && np"
+    "pub": "yarn build && np"
   },
   "peerDependencies": {
     "react": "^17.0.2",
