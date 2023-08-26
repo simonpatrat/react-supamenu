@@ -1,7 +1,8 @@
 import * as React from "react";
 
 import { SupaMenu, type SupaMenuSettings } from "@simonpatrat/supamenu";
-import "@simonpatrat/supamenu/dist/supamenu.css";
+
+import "@simonpatrat/supamenu/dist/css/supamenu.css";
 
 export const SupamenuComponent = ({
   config,

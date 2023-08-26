@@ -2,20 +2,12 @@ export default {
   roots: ["./src"],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   testPathIgnorePatterns: ["<rootDir>/node_modules/"],
-  moduleFileExtensions: ["ts", "tsx", "js"],
   testEnvironment: "jsdom",
+  extensionsToTreatAsEsm: [".ts", ".tsx"],
   transform: {
-    // '^.+\\.[tj]sx?$' to process js/ts with `ts-jest`
-    // '^.+\\.m?[tj]sx?$' to process js/ts/mjs/mts with `ts-jest`
-    "^.+\\.tsx?$": [
-      "ts-jest",
-      {
-        useESM: true,
-      },
-    ],
+    "^.+\\.tsx?$": ["ts-jest"],
   },
 
-  extensionsToTreatAsEsm: [".ts", ".tsx"],
   moduleNameMapper: {
     "^(\\.{1,2}/.*)\\.js$": "$1",
     // Mocks out all these file formats when tests are run
