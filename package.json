@@ -1,6 +1,6 @@
 {
   "name": "@simonpatrat/react-supamenu",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "react version of the supamenu library",
   "author": "Simon Patrat",
   "repository": {
@@ -29,7 +29,6 @@
     "watch": "npm-run-all --parallel reload dev",
     "test": "node --experimental-vm-modules $(yarn bin jest)",
     "test:coverage": "node --experimental-vm-modules $(yarn bin jest --coverage)",
-    "bp": "yarn build-and-publish",
     "publish": "yarn build && np"
   },
   "peerDependencies": {
