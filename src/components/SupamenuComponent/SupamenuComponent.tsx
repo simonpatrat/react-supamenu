@@ -6,6 +6,7 @@ import "@simonpatrat/supamenu/dist/css/supamenu.css";
 import clsx from "clsx";
 
 import { SpmCloseButton } from "..";
+import { SpmActionType, useSupaMenu } from "../context/SpmContext";
 
 export interface SupamenuComponentProps {
   id: string;
@@ -29,9 +30,17 @@ export const SupamenuComponent = ({
   const menuElRef = React.useRef<HTMLElement | null>(null);
   const loadedSupamenu = React.useRef<SupaMenu | null>(null);
 
+  const { menus, dispatch } = useSupaMenu();
+
   React.useEffect(() => {
     if (menuElRef.current && !loadedSupamenu?.current) {
       loadedSupamenu.current = new SupaMenu(menuElRef.current, config);
+      if (!menus?.[id]) {
+        dispatch({
+          type: SpmActionType.REGISTER,
+          payload: { id, menu: loadedSupamenu.current },
+        });
+      }
     }
   }, []);
 
