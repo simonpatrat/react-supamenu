@@ -2,7 +2,7 @@ import * as React from "react";
 import { render } from "@testing-library/react";
 import { jest } from "@jest/globals";
 
-import { SupamenuComponent } from "../index";
+import { ReactSupamenu } from "../index";
 
 Object.defineProperty(window, "matchMedia", {
   writable: true,
@@ -20,15 +20,14 @@ Object.defineProperty(window, "matchMedia", {
 
 describe("Test Component", () => {
   const renderComponent = () =>
-    render(
-      <SupamenuComponent config={{}} id="menu-1" testId="test-component" />
-    );
+    render(<ReactSupamenu config={{}} id="menu-1" testId="test-component" />);
 
-  it("should render", () => {
+  it("should render an element with the given id prop", () => {
     const { getByTestId } = renderComponent();
 
     const testComponent = getByTestId("test-component");
 
-    expect(testComponent).not.toBeNull();
+    expect(testComponent).toBeInTheDocument();
+    expect(testComponent?.id).toBe("menu-1");
   });
 });

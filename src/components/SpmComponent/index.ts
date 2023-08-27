@@ -1,0 +1,1 @@
+export { SpmComponent } from "./SpmComponent";

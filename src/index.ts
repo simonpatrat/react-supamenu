@@ -1,1 +1,13 @@
-export { SupamenuComponent as ReactSupamenu } from "./components/SupamenuComponent";
+export {
+  SpmComponent,
+  SpmBlock,
+  SpmCloseButton,
+  SpmBlockContent,
+  SpmBlockTitle,
+  SpmMegamenuContentBlock,
+  SpmMegamenuPanel,
+  SpmList,
+  SpmListItem,
+  SpmComponents,
+} from "./components";
+export { SupamenuComponent as ReactSupamenu } from "./components/SupamenuComponent/SupamenuComponent";

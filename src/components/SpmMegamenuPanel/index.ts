@@ -1,0 +1,1 @@
+export { SpmMegamenuPanel } from "./SpmMegamenuPanel";

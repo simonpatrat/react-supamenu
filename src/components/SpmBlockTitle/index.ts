@@ -1,0 +1,1 @@
+export { SpmBlockTitle } from "./SpmBlockTitle";
