@@ -35,7 +35,7 @@ export const SupamenuComponent = ({
   React.useEffect(() => {
     if (menuElRef.current && !loadedSupamenu?.current) {
       loadedSupamenu.current = new SupaMenu(menuElRef.current, config);
-      if (!menus?.[id]) {
+      if (menus && !menus?.[id] && typeof dispatch === "function") {
         dispatch({
           type: SpmActionType.REGISTER,
           payload: { id, menu: loadedSupamenu.current },
