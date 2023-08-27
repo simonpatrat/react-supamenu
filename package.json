@@ -94,7 +94,7 @@
     "vite": "^4.4.9"
   },
   "dependencies": {
-    "@simonpatrat/supamenu": "1.0.0",
+    "@simonpatrat/supamenu": "1.0.1",
     "clsx": "^2.0.0"
   }
 }
