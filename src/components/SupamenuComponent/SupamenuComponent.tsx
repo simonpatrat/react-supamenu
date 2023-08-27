@@ -16,6 +16,7 @@ export interface SupamenuComponentProps {
   testId?: string;
   align?: "left" | "right" | "center";
   children?: React.ReactNode;
+  position?: "sticky" | "sticky-bottom" | "fixed" | "fixed-bottom";
 }
 
 export const SupamenuComponent = ({
@@ -26,6 +27,7 @@ export const SupamenuComponent = ({
   accentColor,
   align = "center",
   children,
+  position,
 }: SupamenuComponentProps) => {
   const menuElRef = React.useRef<HTMLElement | null>(null);
   const loadedSupamenu = React.useRef<SupaMenu | null>(null);
@@ -49,8 +51,12 @@ export const SupamenuComponent = ({
       clsx("supamenu", {
         [`supamenu--${type}`]: type,
         [`supamenu--align-${align}`]: align !== "center",
+        [`supamenu--sticky`]: position === "sticky",
+        [`supamenu--sticky--bottom`]: position === "sticky-bottom",
+        [`supamenu--fixed`]: position === "fixed",
+        [`supamenu--fixed--bottom`]: position === "fixed-bottom",
       }),
-    [type, align]
+    [type, align, position]
   );
 
   return (

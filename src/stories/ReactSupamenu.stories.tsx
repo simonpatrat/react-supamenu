@@ -22,6 +22,7 @@ const MENU_ID = "menu-1";
 const meta = {
   title: "Supamenu/ReactSupamenu",
   component: ReactSupamenu,
+
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: "fullscreen",
@@ -45,6 +46,10 @@ const meta = {
     align: {
       options: ["left", "center", "right"],
       control: "radio",
+    },
+    position: {
+      options: ["sticky", "sticky-bottom", "fixed", "fixed-bottom"],
+      control: "select",
     },
   },
 } satisfies Meta<typeof ReactSupamenu>;
@@ -76,6 +81,7 @@ export const Classic: Story = {
   args: {
     id: MENU_ID,
     type: "classic",
+    position: "sticky",
   },
   render: (args) => (
     <SupamenuProvider>
@@ -229,6 +235,7 @@ export const Classic: Story = {
         </SpmComponent>
       </ReactSupamenu>
       <Button />
+      <div style={{ height: 800 }}></div>
     </SupamenuProvider>
   ),
 };
