@@ -8,9 +8,8 @@ import clsx from "clsx";
 import { SpmCloseButton } from "..";
 import { SpmActionType, useSupaMenu } from "../context/SpmContext";
 
-export interface SupamenuComponentProps {
+export interface SupamenuComponentProps extends SupaMenuSettings {
   id: string;
-  config?: SupaMenuSettings;
   accentColor?: string;
   type?: "classic" | "modal" | "off-canvas";
   testId?: string;
@@ -22,17 +21,26 @@ export interface SupamenuComponentProps {
 export const SupamenuComponent = ({
   id,
   type = "classic",
-  config = {},
+  autoDetectColorScheme = true,
   testId,
   accentColor,
   align = "center",
   children,
   position,
+  onHide,
+  onShow,
 }: SupamenuComponentProps) => {
   const menuElRef = React.useRef<HTMLElement | null>(null);
   const loadedSupamenu = React.useRef<SupaMenu | null>(null);
 
   const { menus, dispatch } = useSupaMenu();
+
+  const config = React.useMemo(
+    () => ({
+      autoDetectColorScheme,
+    }),
+    [autoDetectColorScheme, onHide, onShow]
+  );
 
   React.useEffect(() => {
     if (menuElRef.current && !loadedSupamenu?.current) {
