@@ -10,11 +10,9 @@ import {
   SpmList,
   SpmListItem,
   SpmMegamenuContentBlock,
+  ReactSupamenuButton,
 } from "../index";
-import {
-  SupamenuProvider,
-  useSupaMenu,
-} from "../components/context/SpmContext";
+import { SupamenuProvider } from "../components/context/SpmContext";
 
 const MENU_ID = "menu-1";
 
@@ -57,24 +55,6 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-
-const Button = () => {
-  const { menus } = useSupaMenu();
-
-  console.log({ menus });
-  return (
-    <button
-      type="button"
-      onClick={() => {
-        if (menus?.[MENU_ID]) {
-          menus[MENU_ID].toggle();
-        }
-      }}
-    >
-      Show / hide Menu
-    </button>
-  );
-};
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Classic: Story = {
@@ -234,7 +214,7 @@ export const Classic: Story = {
           <SpmComponents.Search />
         </SpmComponent>
       </ReactSupamenu>
-      <Button />
+      <ReactSupamenuButton menuId={MENU_ID} label="Show / hide menu" />
       <div style={{ height: 800 }}></div>
     </SupamenuProvider>
   ),
