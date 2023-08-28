@@ -20,7 +20,7 @@ Object.defineProperty(window, "matchMedia", {
 
 describe("Test Component", () => {
   const renderComponent = () =>
-    render(<ReactSupamenu config={{}} id="menu-1" testId="test-component" />);
+    render(<ReactSupamenu id="menu-1" testId="test-component" />);
 
   it("should render an element with the given id prop", () => {
     const { getByTestId } = renderComponent();
