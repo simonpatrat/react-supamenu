@@ -62,7 +62,7 @@ export const Classic: Story = {
     id: MENU_ID,
     type: "classic",
     position: "sticky",
-    autoDetectColorScheme: false,
+    autoDetectColorScheme: true,
   },
   render: (args) => (
     <SupamenuProvider>
@@ -235,27 +235,27 @@ export const CustomizedTheme: Story = {
     id: MENU_ID,
     type: "classic",
     position: "sticky",
-    autoDetectColorScheme: false,
+    autoDetectColorScheme: true,
   },
   render: (args) => (
     <SupamenuProvider>
       <style
         dangerouslySetInnerHTML={{
           __html: `
-        :root {
-          --supamenu-text-color: #fff;
-        }
+          :root {
+            --supamenu-text-color: #fff;
+            --supamenu-color-dark: #18032b;
+          }
           .supamenu {
+
             --supamenu-background: #2d2d8f;
+
             --supamenu-icon-color: var(--supamenu-text-color);
             --supamenu-classic-menu-dropdown-border: #1f1f63;
             --supamenu-link-color-hover: #f16b42;
             --supamenu-classic-menu-dropdown-border-radius: 0;
-            --supamenu-dropdown-distance: 0px;
-
-            min-height: 80px;
+            --supamenu-dropdown-distance: 5;
           }
-
         `,
         }}
       ></style>
@@ -401,6 +401,11 @@ export const CustomizedTheme: Story = {
                 <img
                   src="https://fastly.picsum.photos/id/481/400/300.jpg?grayscale&hmac=uDwF4Y0Z5yDH2D9UtG32xavJWOKbw8RhpJ4K6BGTZrs"
                   alt=""
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto",
+                    display: "block",
+                  }}
                 />
               </div>
               <div>
@@ -418,7 +423,28 @@ export const CustomizedTheme: Story = {
         menuId={MENU_ID}
         label="Show / hide menu"
       />
-      <div style={{ height: 800 }}></div>
+      <div style={{ height: 800, padding: 32 }}>
+        <pre
+          dangerouslySetInnerHTML={{
+            __html: `
+          :root {
+            --supamenu-text-color: #fff;
+            --supamenu-color-dark: #18032b;
+          }
+          .supamenu {
+
+            --supamenu-background: #2d2d8f;
+
+            --supamenu-icon-color: var(--supamenu-text-color);
+            --supamenu-classic-menu-dropdown-border: #1f1f63;
+            --supamenu-link-color-hover: #f16b42;
+            --supamenu-classic-menu-dropdown-border-radius: 0;
+            --supamenu-dropdown-distance: 0px;
+          }
+        `,
+          }}
+        ></pre>
+      </div>
     </SupamenuProvider>
   ),
 };
