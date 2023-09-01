@@ -13,6 +13,7 @@ import {
   ReactSupamenuButton,
 } from "../index";
 import { SupamenuProvider } from "../components/context/SpmContext";
+import { SpmDropdownToggleButton } from "../components/SpmDropdownToggleButton";
 
 const MENU_ID = "menu-1";
 
@@ -101,66 +102,17 @@ export const Classic: Story = {
           />
           <SpmBlockContent>
             <SpmList>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem, ipsum dolor.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit amet consectetur.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem, ipsum.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem, ipsum dolor.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit amet consectetur.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem, ipsum.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem, ipsum dolor.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit amet consectetur.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem, ipsum.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit.</a>
-              </SpmListItem>
+              {Array(24)
+                .fill("item")
+                .map((item, index) => {
+                  return (
+                    <SpmListItem key={`${item}--${index.toString(36)}`}>
+                      <a href="">
+                        {item} - {index + 1}
+                      </a>
+                    </SpmListItem>
+                  );
+                })}
             </SpmList>
           </SpmBlockContent>
         </SpmBlock>
@@ -294,66 +246,17 @@ export const CustomizedTheme: Story = {
           />
           <SpmBlockContent>
             <SpmList>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem, ipsum dolor.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit amet consectetur.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem, ipsum.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem, ipsum dolor.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit amet consectetur.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem, ipsum.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem, ipsum dolor.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit amet consectetur.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem, ipsum.</a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </a>
-              </SpmListItem>
-              <SpmListItem>
-                <a href="">Lorem ipsum dolor sit.</a>
-              </SpmListItem>
+              {Array(24)
+                .fill("item")
+                .map((item, index) => {
+                  return (
+                    <SpmListItem key={`${item}--${index.toString(36)}`}>
+                      <a href="">
+                        {item} - {index + 1}
+                      </a>
+                    </SpmListItem>
+                  );
+                })}
             </SpmList>
           </SpmBlockContent>
         </SpmBlock>
@@ -445,6 +348,200 @@ export const CustomizedTheme: Story = {
           }}
         ></pre>
       </div>
+    </SupamenuProvider>
+  ),
+};
+
+export const OffCanvas: Story = {
+  args: {
+    id: MENU_ID,
+    type: "off-canvas",
+    autoDetectColorScheme: true,
+  },
+  render: (args) => (
+    <SupamenuProvider>
+      <ReactSupamenu {...args}>
+        <SpmComponent>
+          <div
+            className="spm-logo"
+            style={{ fontWeight: "bolder", fontSize: "1.1rem" }}
+          >
+            React supamenu
+          </div>
+        </SpmComponent>
+        <SpmComponent>
+          <SpmComponents.Search />
+        </SpmComponent>
+        <SpmBlock>
+          <SpmDropdownToggleButton
+            labelVisible
+            label="variants"
+            className="active"
+          />
+          <SpmBlockContent>
+            <SpmList>
+              <SpmListItem>
+                <a href="">modal menu</a>
+              </SpmListItem>
+              <SpmListItem>
+                <a className="active" href="">
+                  off canvas menu
+                </a>
+              </SpmListItem>
+              <SpmListItem>
+                <a href="">unstyled menu</a>
+              </SpmListItem>
+            </SpmList>
+          </SpmBlockContent>
+        </SpmBlock>
+        <SpmBlock>
+          <SpmDropdownToggleButton labelVisible label="Another list" />
+          <SpmBlockContent>
+            <SpmList>
+              {Array(24)
+                .fill("item")
+                .map((item, index) => {
+                  return (
+                    <SpmListItem key={`${item}--${index.toString(36)}`}>
+                      <a href="">
+                        {item} - {index + 1}
+                      </a>
+                    </SpmListItem>
+                  );
+                })}
+            </SpmList>
+          </SpmBlockContent>
+        </SpmBlock>
+      </ReactSupamenu>
+      <ReactSupamenuButton
+        className="demo-button"
+        menuId={MENU_ID}
+        label="Show / hide menu"
+      />
+      <div style={{ height: 800 }}></div>
+    </SupamenuProvider>
+  ),
+};
+
+export const Modal: Story = {
+  args: {
+    id: MENU_ID,
+    type: "modal",
+    autoDetectColorScheme: true,
+  },
+  render: (args) => (
+    <SupamenuProvider>
+      <ReactSupamenu {...args}>
+        <SpmComponent align="left">
+          <div
+            className="spm-logo"
+            style={{ fontWeight: "bolder", fontSize: "1.1rem" }}
+          >
+            React supamenu
+          </div>
+        </SpmComponent>
+        <SpmBlock>
+          <SpmBlockTitle
+            label="variants"
+            dropdownButtonLabel="Show submenu for Block 1"
+          />
+          <SpmBlockContent>
+            <SpmList>
+              <SpmListItem>
+                <a href="/modal.html">modal menu</a>
+              </SpmListItem>
+              <SpmListItem>
+                <a href="/off-canvas.html">off canvas menu</a>
+              </SpmListItem>
+              <SpmListItem>
+                <a href="/unstyled.html">unstyled menu</a>
+              </SpmListItem>
+            </SpmList>
+          </SpmBlockContent>
+        </SpmBlock>
+        <SpmBlock>
+          <SpmBlockTitle
+            label={<a href="">about</a>}
+            dropdownButtonLabel="Show submenu for About"
+          />
+          <SpmBlockContent>
+            <SpmList>
+              {Array(24)
+                .fill("item")
+                .map((item, index) => {
+                  return (
+                    <SpmListItem key={`${item}--${index.toString(36)}`}>
+                      <a href="">
+                        {item} - {index + 1}
+                      </a>
+                    </SpmListItem>
+                  );
+                })}
+            </SpmList>
+          </SpmBlockContent>
+        </SpmBlock>
+        <SpmBlock megamenu>
+          <SpmBlockTitle
+            label="mega menu"
+            dropdownButtonLabel="Show mega menu"
+          />
+          <SpmBlockContent isMegamenu>
+            <SpmMegamenuContentBlock title="Lorem Ipsum yeah">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+                corporis sunt enim non sint nesciunt nostrum ullam ratione ab
+                amet voluptas esse maxime fuga ipsa exercitationem expedita,
+                repellendus, aspernatur magni ad eius? Officia facere fuga
+                accusamus assumenda eos totam, debitis sequi sint repellat
+                corporis. Maiores accusamus aut consequuntur molestias deserunt,
+                id eveniet quaerat ipsa quibusdam voluptatum impedit veritatis
+                molestiae minus!
+              </p>
+              <div>
+                <a href="">Learn more &rarr;</a>
+              </div>
+            </SpmMegamenuContentBlock>
+            <SpmMegamenuContentBlock title="Another title">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+                corporis sunt enim non sint nesciunt nostrum ullam ratione ab
+                amet voluptas esse maxime fuga ipsa exercitationem expedita,
+                repellendus, aspernatur magni ad eius? Officia facere fuga
+                accusamus assumenda eos totam, debitis sequi sint repellat
+                corporis. Maiores accusamus aut consequuntur molestias deserunt,
+                id eveniet quaerat ipsa quibusdam voluptatum impedit veritatis
+                molestiae minus! Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Accusamus illo officia cupiditate, excepturi
+                quod saepe quis possimus quisquam molestiae, deleniti eius rem
+                culpa error architecto nam, corrupti ab nisi! Excepturi.
+              </p>
+              <div>
+                <a href="">Learn more &rarr;</a>
+              </div>
+            </SpmMegamenuContentBlock>
+            <SpmMegamenuContentBlock title="Assumenda eos totam">
+              <div>
+                <img
+                  src="https://fastly.picsum.photos/id/481/400/300.jpg?grayscale&hmac=uDwF4Y0Z5yDH2D9UtG32xavJWOKbw8RhpJ4K6BGTZrs"
+                  alt=""
+                />
+              </div>
+              <div>
+                <a href="">Learn more &rarr;</a>
+              </div>
+            </SpmMegamenuContentBlock>
+          </SpmBlockContent>
+        </SpmBlock>
+        <SpmComponent align="right">
+          <SpmComponents.Search />
+        </SpmComponent>
+      </ReactSupamenu>
+      <ReactSupamenuButton
+        className="demo-button"
+        menuId={MENU_ID}
+        label="Show / hide menu"
+      />
+      <div style={{ height: 800 }}></div>
     </SupamenuProvider>
   ),
 };
