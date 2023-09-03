@@ -14,7 +14,7 @@ import { themePropsToCssVariables } from "../../lib/utils/helpers/themePropsToCs
 export const SupamenuComponent = ({
   id,
   type = "classic",
-  autoDetectColorScheme = true,
+  autoDetectColorScheme = false,
   testId,
   accentColor,
   align = "center",
@@ -23,6 +23,7 @@ export const SupamenuComponent = ({
   onHide,
   onShow,
   theme,
+  darkMode,
 }: SupamenuComponentProps) => {
   const menuElRef = React.useRef<HTMLElement | null>(null);
   const loadedSupamenu = React.useRef<SupaMenu | null>(null);
@@ -61,11 +62,15 @@ export const SupamenuComponent = ({
     [type, align, position]
   );
 
+  const spmContainerClassNames = React.useMemo(() => {
+    return clsx("spm-container", "spm-inner-container", {
+      "spm-grid grid-2-cols": type === "full-screen",
+    });
+  }, [type]);
+
   const themeVariables = React.useMemo(() => {
     return theme ? themePropsToCssVariables(theme) : "";
   }, [theme]);
-
-  console.log({ themeVariables });
 
   return (
     <>
@@ -98,9 +103,10 @@ export const SupamenuComponent = ({
         ref={menuElRef}
         data-testid={testId}
         id={id}
+        {...(darkMode && !autoDetectColorScheme && { "data-theme": "dark" })}
       >
         <SpmCloseButton />
-        <div className="spm-container spm-inner-container">{children}</div>
+        <div className={spmContainerClassNames}>{children}</div>
       </nav>
     </>
   );
