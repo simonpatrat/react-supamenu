@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { SupaMenu, type SupaMenuSettings } from "@simonpatrat/supamenu";
+import { SupaMenu } from "@simonpatrat/supamenu";
 
 import "@simonpatrat/supamenu/dist/css/supamenu.css";
 import clsx from "clsx";
@@ -8,15 +8,8 @@ import clsx from "clsx";
 import { SpmCloseButton } from "..";
 import { SpmActionType, useSupaMenu } from "../context/SpmContext";
 
-export interface SupamenuComponentProps extends SupaMenuSettings {
-  id: string;
-  accentColor?: string;
-  type?: "classic" | "modal" | "off-canvas";
-  testId?: string;
-  align?: "left" | "right" | "center";
-  children?: React.ReactNode;
-  position?: "sticky" | "sticky-bottom" | "fixed" | "fixed-bottom";
-}
+import { SupamenuComponentProps } from "./SupamenuComponent.types";
+import { themePropsToCssVariables } from "../../lib/utils/helpers/themePropsToCssVariables";
 
 export const SupamenuComponent = ({
   id,
@@ -29,6 +22,7 @@ export const SupamenuComponent = ({
   position,
   onHide,
   onShow,
+  theme,
 }: SupamenuComponentProps) => {
   const menuElRef = React.useRef<HTMLElement | null>(null);
   const loadedSupamenu = React.useRef<SupaMenu | null>(null);
@@ -67,6 +61,12 @@ export const SupamenuComponent = ({
     [type, align, position]
   );
 
+  const themeVariables = React.useMemo(() => {
+    return theme ? themePropsToCssVariables(theme) : "";
+  }, [theme]);
+
+  console.log({ themeVariables });
+
   return (
     <>
       {accentColor && (
@@ -76,6 +76,19 @@ export const SupamenuComponent = ({
         :root {
           --supamenu-accent-color: ${accentColor};
         }
+
+        `,
+          }}
+        />
+      )}
+
+      {themeVariables && (
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              .supamenu {
+                ${themeVariables}
+              }
         `,
           }}
         />
