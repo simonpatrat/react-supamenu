@@ -20,7 +20,7 @@ export const SupamenuComponent = ({
   onShow,
   theme,
   darkMode,
-}: SupamenuComponentProps & { type: SupamenuMenuType }) => {
+}: SupamenuComponentProps & { type?: SupamenuMenuType }) => {
   const MenuComponent = React.useMemo(() => {
     switch (type) {
       case "classic":
