@@ -72,7 +72,15 @@ export const Classic: Story = {
         <SpmComponent align="left">
           <div
             className="spm-logo"
-            style={{ fontWeight: "bolder", fontSize: "1.1rem" }}
+            style={{
+              fontWeight: "bolder",
+              fontSize: "1.1rem",
+              background:
+                "-webkit-linear-gradient(120deg, var(--supamenu-accent-color), #c21c82)",
+              // @ts-ignore ignore css properties
+              "-webkit-background-clip": "text",
+              "-webkit-text-fill-color": "transparent",
+            }}
           >
             React supamenu
           </div>
