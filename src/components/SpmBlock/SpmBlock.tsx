@@ -15,7 +15,7 @@ export const SpmBlock = ({
 }) => {
   const classNames = clsx("spm__block", className, {
     spm__mega: megamenu,
-    "side-dropdowns": sideDropdowns,
+    "side-dropdowns": sideDropdowns && !megamenu,
     "spm__block--always-visible": alwaysVisible,
   });
   return <div className={classNames}>{children}</div>;
