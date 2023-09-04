@@ -14,8 +14,6 @@ export const useCreateSupamenu = ({
   onHide,
   onShow,
   theme,
-  testId,
-  darkMode,
 }: SupamenuComponentProps & { type: SupamenuMenuType }) => {
   const menuElRef = React.useRef<HTMLMenuElement | null>(null);
   const loadedSupamenu = React.useRef<SupaMenu | null>(null);
