@@ -12,9 +12,9 @@ import {
   SpmMegamenuContentBlock,
   ReactSupamenuButton,
 } from "../index";
-import { SupamenuProvider } from "../components/context/SpmContext";
+import { SupamenuProvider } from "../context/SpmContext";
 import { SpmDropdownToggleButton } from "../components/SpmDropdownToggleButton";
-import { SupamenuComponentProps } from "../components/SupamenuComponent/SupamenuComponent.types";
+import { SupamenuComponentProps } from "../types";
 
 const MENU_ID = "menu-1";
 
@@ -237,9 +237,36 @@ export const CustomizedTheme: Story = {
         <SpmComponent align="left">
           <div
             className="spm-logo"
-            style={{ fontWeight: "bolder", fontSize: "1.1rem", lineHeight: 1 }}
+            style={{
+              lineHeight: "60px",
+              color: "#0f0e0e",
+              background: "#fff",
+              borderRadius: "50%",
+              height: 40,
+              width: 40,
+              fontWeight: 800,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginRight: 16,
+            }}
           >
-            React supamenu
+            <div
+              style={{
+                fontSize: ".7rem",
+                width: 20,
+                height: 20,
+                borderRadius: "50%",
+                background: "#195245",
+                border: "4px solid #f16b42",
+                color: "#fff",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <div style={{ transform: "rotate(-15deg)" }}>S</div>
+            </div>
           </div>
         </SpmComponent>
         <SpmBlock>
@@ -275,9 +302,9 @@ export const CustomizedTheme: Story = {
                     <SpmListItem key={`${item}--${index.toString(36)}`}>
                       {index === 3 ? (
                         <SpmBlock>
-                          <SpmBlockTitle
+                          <SpmDropdownToggleButton
                             label="Submenu"
-                            dropdownButtonLabel="Show submenu for About"
+                            labelVisible
                           />
                           <SpmBlockContent>
                             <SpmList>
@@ -352,11 +379,6 @@ export const CustomizedTheme: Story = {
                 <img
                   src="https://fastly.picsum.photos/id/481/400/300.jpg?grayscale&hmac=uDwF4Y0Z5yDH2D9UtG32xavJWOKbw8RhpJ4K6BGTZrs"
                   alt=""
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                    display: "block",
-                  }}
                 />
               </div>
               <div>

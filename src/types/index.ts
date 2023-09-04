@@ -1,3 +1,10 @@
+export type SupamenuMenuType =
+  | "classic"
+  | "modal"
+  | "off-canvas"
+  | "unstyled"
+  | "full-screen";
+
 import { SupaMenuSettings } from "@simonpatrat/supamenu";
 
 export interface SupamenuTheme extends Record<string, unknown> {
@@ -42,11 +49,11 @@ export interface SupamenuTheme extends Record<string, unknown> {
 export interface SupamenuComponentProps extends SupaMenuSettings {
   id: string;
   accentColor?: string;
-  type?: "classic" | "modal" | "off-canvas" | "unstyled" | "full-screen";
   testId?: string;
   align?: "left" | "right" | "center";
   children?: React.ReactNode;
   position?: "sticky" | "sticky-bottom" | "fixed" | "fixed-bottom";
   theme?: SupamenuTheme;
   darkMode?: boolean;
+  className?: string;
 }
