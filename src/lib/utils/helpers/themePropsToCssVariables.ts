@@ -1,4 +1,4 @@
-import { SupamenuTheme } from "../../../components/SupamenuComponent/SupamenuComponent.types";
+import { SupamenuTheme } from "../../../types";
 import { camelToDashCase } from "../camelToDashCase";
 
 export const themePropsToCssVariables = (theme: SupamenuTheme) => {
