@@ -193,12 +193,9 @@ export const Classic: Story = {
             <SpmMegamenuContentBlock title="Assumenda eos totam">
               <div>
                 <img
-                  src="https://fastly.picsum.photos/id/481/400/300.jpg?grayscale&hmac=uDwF4Y0Z5yDH2D9UtG32xavJWOKbw8RhpJ4K6BGTZrs"
+                  src="https://fastly.picsum.photos/id/866/768/480.jpg?hmac=MdtpTFqt93NcCP-yqolH2hsk8k9GUmfm9rlbN-VKrNU"
                   alt=""
                 />
-              </div>
-              <div>
-                <a href="">Learn more &rarr;</a>
               </div>
             </SpmMegamenuContentBlock>
           </SpmBlockContent>
