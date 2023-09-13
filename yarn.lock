@@ -2186,10 +2186,10 @@
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
 
-"@simonpatrat/supamenu@1.6.1":
-  version "1.6.1"
-  resolved "https://npm.pkg.github.com/download/@simonpatrat/supamenu/1.6.1/fcc60192d0a85655199e6da41f891705a6085594#fcc60192d0a85655199e6da41f891705a6085594"
-  integrity sha512-oyO3NplGNbjX84+Ty5EmZ3i6LcOsRPXlCayZkiplJ3ETatseCjocTSNAPA2Oo7dfXEwPeftUzDBtY3Txm3VNfQ==
+"@simonpatrat/supamenu@1.6.2":
+  version "1.6.2"
+  resolved "https://npm.pkg.github.com/download/@simonpatrat/supamenu/1.6.2/ab9c98c4d32b5c0f66030f11ad310a37df7bccb5#ab9c98c4d32b5c0f66030f11ad310a37df7bccb5"
+  integrity sha512-MRsWL03AvE/e3KOzb3EvTpdGza2bCDgcsqdDWOyffuhahgCUdX+W7RblXA/U01oupWrmIs+BiI52YjSQ78Zp1Q==
 
 "@sinclair/typebox@^0.27.8":
   version "0.27.8"
