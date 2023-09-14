@@ -38,6 +38,8 @@ jobs:
         with:
           registry-url: https://npm.pkg.github.com/
       - run: yarn install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn build-storybook
       - name: Setup Pages
         uses: actions/configure-pages@v3
@@ -48,5 +50,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
