@@ -27,7 +27,7 @@ const meta = {
     docs: {
       story: {
         inline: false,
-        iframeHeight: 200,
+        iframeHeight: 1000,
       },
     },
   },
@@ -36,15 +36,6 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     accentColor: { control: "color" },
-
-    align: {
-      options: ["left", "center", "right"],
-      control: "radio",
-    },
-    position: {
-      options: ["sticky", "sticky-bottom", "fixed", "fixed-bottom"],
-      control: "select",
-    },
   },
 } satisfies Meta<typeof SupamenuFullScreen>;
 

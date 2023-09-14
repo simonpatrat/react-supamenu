@@ -12,15 +12,13 @@ const SupamenuFullScreen = ({
   autoDetectColorScheme = false,
   testId,
   accentColor,
-  align = "center",
   children,
-  position,
   onHide,
   onShow,
   theme,
   darkMode,
   className,
-}: SupamenuComponentProps) => {
+}: Omit<SupamenuComponentProps, "position" | "align">) => {
   const { themeVariables, menuClassNames, spmContainerClassNames, menuElRef } =
     useCreateSupamenu({
       id,
@@ -28,9 +26,7 @@ const SupamenuFullScreen = ({
       autoDetectColorScheme,
       testId,
       accentColor,
-      align,
       children,
-      position,
       onHide,
       onShow,
       theme,

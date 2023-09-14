@@ -10,15 +10,13 @@ const SupamenuOffCanvasV2 = ({
   autoDetectColorScheme = false,
   testId,
   accentColor,
-  align = "center",
   children,
-  position,
   onHide,
   onShow,
   theme,
   darkMode,
   className,
-}: SupamenuComponentProps) => {
+}: Omit<SupamenuComponentProps, "position" | "align">) => {
   const { themeVariables, menuClassNames, spmContainerClassNames, menuElRef } =
     useCreateSupamenu({
       id,
@@ -26,9 +24,7 @@ const SupamenuOffCanvasV2 = ({
       autoDetectColorScheme,
       testId,
       accentColor,
-      align,
       children,
-      position,
       onHide,
       onShow,
       theme,

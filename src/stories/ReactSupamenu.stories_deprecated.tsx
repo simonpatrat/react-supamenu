@@ -30,7 +30,7 @@ const meta = {
     docs: {
       story: {
         inline: false,
-        iframeHeight: 200,
+        iframeHeight: 1000,
       },
     },
   },
