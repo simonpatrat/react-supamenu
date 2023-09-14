@@ -1,7 +1,5 @@
 import clsx from "clsx";
 
-import { SpmCloseButton } from "../SpmCloseButton";
-
 import "@simonpatrat/supamenu/dist/css/supamenu-off-canvas.css";
 import { SupamenuComponentProps } from "../../types";
 import { useCreateSupamenu } from "../../hooks/useCreateSupamenu";
