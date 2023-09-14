@@ -13,7 +13,6 @@ on:
 permissions:
   contents: read
   pages: write
-  id-token: write
   packages: read
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
@@ -23,28 +22,46 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
     steps:
       - uses: actions/checkout@v3
       # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v3
         with:
+          node-version: '18.x'
           registry-url: 'https://npm.pkg.github.com'
       - run: yarn install --frozen-lockfile
         env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: yarn build-storybook
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: "./storybook-static"
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+
+# jobs:
+#   # Single deploy job since we're just deploying
+#   deploy:
+#     environment:
+#       name: github-pages
+#       url: ${{ steps.deployment.outputs.page_url }}
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       # Setup .npmrc file to publish to GitHub Packages
+#       - uses: actions/setup-node@v3
+#         with:
+#           registry-url: 'https://npm.pkg.github.com'
+#       - run: yarn install --frozen-lockfile
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       - run: yarn build-storybook
+#       - name: Setup Pages
+#         uses: actions/configure-pages@v3
+#       - name: Upload artifact
+#         uses: actions/upload-pages-artifact@v2
+#         with:
+#           path: "./storybook-static"
+#       - name: Deploy to GitHub Pages
+#         id: deployment
+#         uses: actions/deploy-pages@v2
