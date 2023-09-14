@@ -4,3 +4,4 @@ bundle-analysis.html
 .npmrc
 coverage/
 yarn-error.log
+storybook-static/

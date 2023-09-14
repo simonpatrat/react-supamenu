@@ -51,7 +51,7 @@ const baseArgs: SupamenuComponentProps = {
   darkMode: false,
 };
 
-export const OffCanvas: Story = {
+export const OffCanvasV2: Story = {
   args: {
     ...baseArgs,
   },
