@@ -11,6 +11,7 @@ export {
   SpmComponents,
   SupamenuClassic,
   SupamenuOffCanvas,
+  SupamenuOffCanvasV2,
   SupamenuModal,
   SupamenuFullScreen,
 } from "./components";

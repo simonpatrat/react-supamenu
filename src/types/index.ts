@@ -3,7 +3,8 @@ export type SupamenuMenuType =
   | "modal"
   | "off-canvas"
   | "unstyled"
-  | "full-screen";
+  | "full-screen"
+  | "off-canvas-v2";
 
 import { SupaMenuSettings } from "@simonpatrat/supamenu";
 

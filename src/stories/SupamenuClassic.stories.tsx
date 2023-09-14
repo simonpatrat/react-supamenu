@@ -89,6 +89,7 @@ export const Classic: Story = {
           <SpmBlockTitle
             label="variants"
             dropdownButtonLabel="Show submenu for Block 1"
+            icon="chevron"
           />
           <SpmBlockContent>
             <SpmList>
@@ -108,6 +109,7 @@ export const Classic: Story = {
           <SpmBlockTitle
             label={<a href="">about</a>}
             dropdownButtonLabel="Show submenu for About"
+            icon="chevron"
           />
           <SpmBlockContent>
             <SpmList>
@@ -121,6 +123,7 @@ export const Classic: Story = {
                           <SpmDropdownToggleButton
                             label="Submenu"
                             labelVisible
+                            icon="chevron"
                           />
                           <SpmBlockContent>
                             <SpmList>
@@ -155,6 +158,7 @@ export const Classic: Story = {
           <SpmBlockTitle
             label="mega menu"
             dropdownButtonLabel="Show mega menu"
+            icon="chevron"
           />
           <SpmBlockContent isMegamenu>
             <SpmMegamenuContentBlock title="Lorem Ipsum yeah">

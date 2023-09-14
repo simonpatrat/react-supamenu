@@ -2,12 +2,12 @@ import clsx from "clsx";
 
 import { SpmCloseButton } from "../SpmCloseButton";
 
-import "@simonpatrat/supamenu/dist/css/supamenu-off-canvas.css";
+import "@simonpatrat/supamenu/dist/css/supamenu-off-canvas-v2.css";
 import { SupamenuComponentProps } from "../../types";
 import { useCreateSupamenu } from "../../hooks/useCreateSupamenu";
 import { SpmThemeStyles } from "../SpmThemeVariables";
 
-const SupamenuOffCanvas = ({
+const SupamenuOffCanvasV2 = ({
   id,
   autoDetectColorScheme = false,
   testId,
@@ -24,7 +24,7 @@ const SupamenuOffCanvas = ({
   const { themeVariables, menuClassNames, spmContainerClassNames, menuElRef } =
     useCreateSupamenu({
       id,
-      type: "off-canvas",
+      type: "off-canvas-v2",
       autoDetectColorScheme,
       testId,
       accentColor,
@@ -58,4 +58,4 @@ const SupamenuOffCanvas = ({
   );
 };
 
-export default SupamenuOffCanvas;
+export default SupamenuOffCanvasV2;

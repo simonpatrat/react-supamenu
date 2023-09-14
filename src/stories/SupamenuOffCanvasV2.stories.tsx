@@ -8,19 +8,19 @@ import {
   SpmList,
   SpmListItem,
   ReactSupamenuButton,
-  SupamenuOffCanvas,
+  SupamenuOffCanvasV2,
 } from "../index";
 import { SupamenuProvider } from "../context/SpmContext";
 import { SpmDropdownToggleButton } from "../components/SpmDropdownToggleButton";
 import { SupamenuComponentProps } from "../types";
-import { SpmFooter, SpmGroup } from "../components";
+import { SpmBlockTitle, SpmFooter, SpmGroup } from "../components";
 
 const MENU_ID = "menu-1";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: "Supamenu/SupamenuOffCanvas",
-  component: SupamenuOffCanvas,
+  title: "Supamenu/SupamenuOffCanvasV2",
+  component: SupamenuOffCanvasV2,
 
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
@@ -39,7 +39,7 @@ const meta = {
   argTypes: {
     accentColor: { control: "color" },
   },
-} satisfies Meta<typeof SupamenuOffCanvas>;
+} satisfies Meta<typeof SupamenuOffCanvasV2>;
 
 export default meta;
 
@@ -57,11 +57,27 @@ export const OffCanvas: Story = {
   },
   render: (args) => (
     <SupamenuProvider>
-      <SupamenuOffCanvas {...args}>
+      <SupamenuOffCanvasV2 {...args}>
         <SpmComponent>
           <SpmComponents.Search />
         </SpmComponent>
         <SpmGroup>
+          <SpmBlock>
+            <SpmBlockTitle label="variants" />
+            <SpmList>
+              <SpmListItem>
+                <a href="">modal menu</a>
+              </SpmListItem>
+              <SpmListItem>
+                <a className="active" href="">
+                  off-canvas v2 menu
+                </a>
+              </SpmListItem>
+              <SpmListItem>
+                <a href="">unstyled menu</a>
+              </SpmListItem>
+            </SpmList>
+          </SpmBlock>
           <SpmBlock>
             <SpmDropdownToggleButton
               labelVisible
@@ -70,6 +86,12 @@ export const OffCanvas: Story = {
               icon="chevron"
             />
             <SpmBlockContent>
+              <SpmDropdownToggleButton
+                labelVisible
+                label="Back"
+                icon="chevron"
+                data-action="close"
+              />
               <SpmList>
                 <SpmListItem>
                   <a href="">modal menu</a>
@@ -92,6 +114,12 @@ export const OffCanvas: Story = {
               icon="chevron"
             />
             <SpmBlockContent>
+              <SpmDropdownToggleButton
+                labelVisible
+                label="Back"
+                icon="chevron"
+                data-action="close"
+              />
               <SpmList>
                 {Array(24)
                   .fill("item")
@@ -106,6 +134,12 @@ export const OffCanvas: Story = {
                               icon="chevron"
                             />
                             <SpmBlockContent>
+                              <SpmDropdownToggleButton
+                                labelVisible
+                                label="Back"
+                                icon="chevron"
+                                data-action="close"
+                              />
                               <SpmList>
                                 {Array(8)
                                   .fill("item")
@@ -136,6 +170,7 @@ export const OffCanvas: Story = {
           </SpmBlock>
         </SpmGroup>
         <SpmGroup bottom>
+          <SpmBlockTitle label="Additional content" />
           <SpmBlock>
             <SpmDropdownToggleButton
               labelVisible
@@ -144,6 +179,12 @@ export const OffCanvas: Story = {
               icon="chevron"
             />
             <SpmBlockContent>
+              <SpmDropdownToggleButton
+                labelVisible
+                label="Back"
+                icon="chevron"
+                data-action="close"
+              />
               <SpmList>
                 <SpmListItem>
                   <a href="">modal menu</a>
@@ -166,6 +207,12 @@ export const OffCanvas: Story = {
               icon="chevron"
             />
             <SpmBlockContent>
+              <SpmDropdownToggleButton
+                labelVisible
+                label="Back"
+                icon="chevron"
+                data-action="close"
+              />
               <SpmList>
                 {Array(24)
                   .fill("item")
@@ -188,7 +235,7 @@ export const OffCanvas: Story = {
             <div className="spm-logo">supamenu</div>
           </SpmComponent>
         </SpmFooter>
-      </SupamenuOffCanvas>
+      </SupamenuOffCanvasV2>
       <ReactSupamenuButton
         className="demo-button"
         menuId={MENU_ID}

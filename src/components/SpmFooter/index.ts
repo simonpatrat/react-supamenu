@@ -1,0 +1,1 @@
+export { SpmFooter } from "./SpmFooter";
