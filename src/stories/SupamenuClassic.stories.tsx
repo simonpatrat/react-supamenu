@@ -63,20 +63,7 @@ export const Classic: Story = {
     <SupamenuProvider>
       <SupamenuClassic {...args}>
         <SpmComponent align="left">
-          <div
-            className="spm-logo"
-            style={{
-              fontWeight: "bolder",
-              fontSize: "1.1rem",
-              background:
-                "-webkit-linear-gradient(120deg, var(--supamenu-accent-color), #c21c82)",
-              // @ts-ignore ignore css properties
-              "-webkit-background-clip": "text",
-              "-webkit-text-fill-color": "transparent",
-            }}
-          >
-            React supamenu
-          </div>
+          <div className="spm-logo">React supamenu</div>
         </SpmComponent>
         <SpmBlock>
           <SpmBlockTitle
@@ -87,13 +74,32 @@ export const Classic: Story = {
           <SpmBlockContent>
             <SpmList>
               <SpmListItem>
-                <a href="/modal.html">modal menu</a>
+                <a
+                  className="active"
+                  href="/?path=/story/supamenu-supamenuclassic--classic"
+                >
+                  classic menu
+                </a>
               </SpmListItem>
               <SpmListItem>
-                <a href="/off-canvas.html">off canvas menu</a>
+                <a href="/?path=/story/supamenu-supamenumodal--modal">
+                  modal menu
+                </a>
               </SpmListItem>
               <SpmListItem>
-                <a href="/unstyled.html">unstyled menu</a>
+                <a href="/?path=/story/supamenu-supamenuoffcanvas--off-canvas">
+                  off-canvas menu
+                </a>
+              </SpmListItem>
+              <SpmListItem>
+                <a href="/?path=/story/supamenu-supamenuoffcanvasv2--off-canvas-v-2">
+                  off-canvas v2 menu
+                </a>
+              </SpmListItem>
+              <SpmListItem>
+                <a href="/?path=/story/supamenu-supamenufullscreen--full-screen">
+                  full screen menu
+                </a>
               </SpmListItem>
             </SpmList>
           </SpmBlockContent>
